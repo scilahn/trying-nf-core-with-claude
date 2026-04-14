@@ -1,0 +1,42 @@
+# Nextflow
+work/
+.nextflow/
+.nextflow.log*
+*.nextflow.log
+timeline.html
+report.html
+trace.txt
+dag.dot
+dag.html
+
+# Pipeline outputs
+results/
+test_output/
+test_rnaseq/
+test_sarek/
+test_atacseq/
+
+# nf-core downloaded assets
+singularity_cache/
+docker_cache/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+.env
+.venv/
+
+# Logs
+*.log

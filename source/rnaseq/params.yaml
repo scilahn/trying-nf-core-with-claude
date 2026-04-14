@@ -1,0 +1,28 @@
+# nf-core/rnaseq 3.24.0 — parameter file
+# Reference: https://nf-co.re/rnaseq/3.24.0/parameters/
+
+# ── Input / Output ────────────────────────────────────────────────────────────
+input: samplesheet.csv
+outdir: results
+
+# ── Reference genome ──────────────────────────────────────────────────────────
+# GRCh38 = hg38 (Ensembl 108 via iGenomes)
+genome: GRCh38
+
+# ── Alignment ─────────────────────────────────────────────────────────────────
+# star_salmon: full STAR alignment + Salmon quantification (no pseudo-alignment)
+aligner: star_salmon
+
+# Explicitly disable pseudo-alignment (salmon-only mode)
+# Leaving pseudo_aligner unset achieves this; included here for clarity
+# pseudo_aligner: null
+
+# ── QC — skip contamination-screening tools only ──────────────────────────────
+# Keep all default QC (FastQC, Trim Galore!, RSeQC, dupradar, etc.)
+# but disable the three tools requested:
+skip_kraken2: true    # disables Kraken2 taxonomic classification
+skip_bracken: true    # disables Bracken abundance re-estimation
+skip_sylph: true      # disables Sylph k-mer-based contamination screening
+
+# ── Reproducibility ───────────────────────────────────────────────────────────
+# Pin random seed for reproducible STAR alignment
